@@ -146,6 +146,11 @@ article p{
   margin-left : -0.5em;
 }
 
+#library-globe {
+	margin-right: 20px;
+	text-align: center;
+}
+
 
 /* Right Column */
 
