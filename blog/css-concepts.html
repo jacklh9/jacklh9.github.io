@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../stylesheets/default.css" rel="stylesheet" type="text/css">
+  <link href="../stylesheets/blog.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <title>Blogs:Jack L. Hamilton:CSS Concepts</title>
+</head>
+<body>
+
+<div id="content">
+<div id="left_col_graphic">
+<img src="../imgs/left_column_books.png" alt="left column">
+</div>
+
+
+<main>
+
+<header>
+
+<div id="nav-graphic">
+ <ul id="menu">
+  <li class="left-books"><span>Left_Books</span></li>
+  <li class="home"><a href="../index.html">Home</a></li>
+  <li class="about"><a href="../about.html">About</a></li>
+  <li class="blogs"><a class="selected" href="./blog/index.html">Blogs</a></li>
+  <li class="contact"><a href="../contact.html">Contact</a></li>
+  <li class="projects"><a href="../projects.html">Projects</a></li>
+  <li class="resume"><a href="../resume.html">Resume</a></li>
+  <li class="right-books"><span>Right_Books</span></li>
+ </ul>
+</div><!-- div id="nav-graphic" -->
+
+<p id="name">
+Jack L. Hamilton
+</p>
+
+</header>
+
+<div id="breadcrumb">
+<a href="./index.html">Blogs</a> > 2016/01/18
+</div>
+
+<article class="blog-post">
+<h2>2016/01/18:CSS:It's All Relative:What are the differences between relative, absolute, fixed, and static positioning?</h2>
+
+<p>
+I initially had a hard time discerning what the differences were for the various positioning types. It made sense to me when I finally came across a good set of instructions that defined them in order, as one concept builds up to the next. I will go over a summary here.
+</p>
+
+<h3>Static</h3>
+<p>
+Let's start with static positioning. This is the default flow of objects, even if you don't explicitly state "static". Block elements will stack on top of each other, and inline-block elements will rest next to each other. It's the normal flow.
+</p>
+
+<h3>Relative</h3>
+<p>
+To think of how relative works, first pretend the element was positioned statically--that is, it appears where it normally would. From the location where the object would normally sit, it is then "moved" or "adjusted" out of that spot. Interestingly, all the objects in the normal static flow treat the empty space left behind AS IF the object WERE STILL THERE! (Sounds almost like a quantum physics concept.) 
+</p>
+
+<h3>Absolute</h3>
+<p>
+Absolute is ALMOST like relative, but this time the empty space left behind is closed up by the other objects, which now act as if the original object never existed. The object that has been moved now resides in it's new spot with respect to its container.
+</p>
+
+<h3>Fixed</h3>
+<p>
+Fixed is just like absolute, EXCEPT that it's new spot is NOT with respect to its container--instead it's with respect to the browser window (viewport). Whereever it's positioned, there it will remain ALWAYS in that window, regardless if the window is scrolled up or own--the object remains fixed.
+</p>
+
+<p>
+So there you have it. Hope this summary helped. Until next time.
+</p>
+
+<p>
+--- JLH
+</p>
+
+<!-- Web related clip-art goes here. -->
+<img src="../imgs/einstein.jpg" />
+
+</article>
+</main>
+
+
+<div id="right_col_graphic">
+<img src="../imgs/right_column_books.png" alt="right column">
+</div>
+
+<footer>
+
+<div id="globe">
+<img src="../imgs/footer/desk_globe.png" alt="Globe Graphic">
+</div>
+
+<div id="footer-center">
+
+<nav>
+<a href="../index.html">Home</a> | 
+<a href="../about.html">About</a> | 
+Blogs | 
+<a href="../contact.html">Contact</a> | 
+<a href="../projects.html">Projects</a> | 
+<a href="../resume.html">Resume</a>   
+</nav>
+
+<div id="copyright">
+&copy; 2016 Jack L. Hamilton
+</div>
+
+</div><!-- div id="nav" -->
+
+<div id="lamp">
+<img src="../imgs/footer/desk_lamp.png" alt="Library Lamp">
+</div>
+
+</footer>
+
+</div> <!-- id="content" -->
+</body>
+</html>
+
+
