@@ -15,7 +15,7 @@ body {
 
 /* Left Column */
 #left_col_graphic img {	
-	border: 5px solid black;
+	border: 5px solid #000000;
 	float: left;
 	width: 140px;
 }
@@ -33,65 +33,83 @@ main {
 
 header {
 	border-top: 5px solid #000000;
+	border-bottom: 5px solid #000000;
 	overflow: auto;
 }
 
 
 #nav-graphic {
-	background-color: #8D4722; 
-	height: 150px; 
+	background-color: #0B0200;
+	float: left;
+	height: 100px; 
 	margin: 0px 0px 0px 0px;
-	width: 320px;
+	width: 330px;
 }	
 
-#nav-graphic #navlist {
-	position: relative;
-}
-
-#nav-graphic #navlist li {
+ul#menu {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	position: absolute;
-	top: 0;
+	clear: both;
 }
 
-#navlist li, #navlist a {
-	height: 110px; 
+#menu li{
+	overflow: hidden;
+	text-indent: -9999px;
+	display: inline;
+	float: left;
+	margin-right: 10px;
+}
+
+#menu li a, #menu li span{
+	background: url("../imgs/nav/navbar_sprite.png") no-repeat;
+	width: 100%;
+	height: 100%;
 	display: block;
 }
 
-#home {
-	left: 70px;
-	width: 20px;
-	background: url("../imgs/nav/navbar_sprite.gif") 0 -90;
-}
 
-#home a:hover, #home a:active {
-	background: url("../imgs/nav/navbar_sprite.gif") -100 -90;
-}
+#menu li.left-books { height: 100px; width: 92px; margin: 0; }
+	#menu li.left-books span{ background-position: 0px 0px;}
 
-#blogs {
-	left: 90px;
-	width: 17px;
-	background-image: url("../imgs/nav/navbar_sprite.gif") 0 -130;
-}
+#menu li.home { height: 100px; width: 20px; margin: 0; }
+	#menu li.home a{ background-position: -92px 0px; }
+	#menu li.home a:hover{ background-position: -93px -100px; }
 
-#blogs a:hover, #home a:active {
-	background-image: url("../imgs/nav/navbar_sprite.gif") -100 -130;
-}
+#menu li.about { height: 100px; width: 20px; margin: 0; }
+	#menu li.about a{ background-position: -112px 0px;}
+	#menu li.about a:hover{ background-position: -112px -100px; }
+
+#menu li.blogs { height: 100px; width: 20px; margin: 0; }
+	#menu li.blogs a{ background-position: -133px 0px;}
+	#menu li.blogs a:hover{ background-position: -133px -99px; }
+
+#menu li.contact { height: 100px; width: 14px; margin: 0; }
+	#menu li.contact a{ background-position: -152px 0px;}
+	#menu li.contact a:hover{ background-position: -153px -98px; }
+
+#menu li.projects { height: 100px; width: 20px; margin: 0; }
+	#menu li.projects a{ background-position: -166px 0px; }
+	#menu li.projects a:hover{ background-position: -167px -98px; }
+
+#menu li.resume { height: 100px; width: 16px; margin: 0; }
+	#menu li.resume a{ background-position: -184px 0px;}
+	#menu li.resume a:hover{ background-position: -185px -98px; }
+
+#menu li.right-books { height: 100px; width: 114px; }
+	#menu li.right-books span{ background-position: -200px 0px; }
 
 #name {
 	background-color: #8D4722;
-	border-bottom: 5px solid #000000;
+	color: #FFFFFF;
 	float: left;
 	font-size: 18pt;
 	font-weight: bold;
-	height: 55px;
+	height: 50px;
 	margin: 0px 0px 0px 0px;
 	padding: 25px 0px 25px 0px;
 	text-align: center;
-	width: 310px;
+	width: 330px;
 }
 
 #breadcrumb {
@@ -132,7 +150,7 @@ article p{
 /* Right Column */
 
 #right_col_graphic img {
-	border: 5px solid black;
+	border: 5px solid #000000;
 	float: left;
 	width: 140px;
 }
