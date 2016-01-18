@@ -125,13 +125,13 @@ ul#menu {
 
 article {
 	overflow: auto;
+	max-height: 460px;
 }
 
 article p{
   float: left;
   line-height : 1.5;
   margin-right: 20px;
-  width: 290px;
 }
 
 .drop-cap{

@@ -1,0 +1,44 @@
+#sections {
+	overflow: auto;
+	max-height: 460px;
+}
+
+main section {
+	border: 1px solid #FFFFFF;
+	margin: 10px 10px 10px 10px;
+	overflow: auto;	
+}
+
+img.topic-graphic-thumbnail {
+	float: left;
+	height: 95%;
+	max-width: 20%;
+	margin: 15px 5px 5px 5px;
+}
+
+article.blog-post-summary  {
+	float: left;
+	margin: 10px 10px 10px 10px;
+	width: 75%;
+}
+
+.blog-post-summary h2 {
+	font-size: 14pt;
+	margin: 5px 0px 5px 0px;
+}
+
+
+.blog-post-summary p {
+	font-size: 12pt;
+	margin: 0;	
+}
+
+article.blog-post {
+	margin: 10px 20px 10px 20px;
+	max-height: 460px;
+	overflow: auto;
+}
+
+
+img.topic-graphic {
+}
