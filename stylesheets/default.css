@@ -1,0 +1,162 @@
+body {
+	background-color: #593425;
+	font-family: 'Playfair Display', sans-serif;
+	overflow: auto;
+	margin: 0;
+}
+
+#content{
+	background-color: #0B0200;
+	width: 960px;
+	margin: auto;
+	margin-top: 5px;
+	overflow: auto;
+}
+
+/* Left Column */
+#left_col_graphic img {	
+	border: 5px solid black;
+	float: left;
+	width: 140px;
+}
+
+
+/* Main Content Column */
+
+main {
+	background-color: #D89D68;
+	float: left;
+    width: 660px;
+}
+
+/* Header */
+
+header {
+	border-top: 5px solid #000000;
+	overflow: auto;
+}
+
+#graphic-nav {
+	background-color: #8D4722;
+	float: left;
+	height: 110px;
+	margin: 0px 0px 0px 0px;
+	width: 320px;
+}
+
+#graphic-nav a.button {
+	height: 100px;
+	background-image: url("imgs/nav/navbar_sprite.png");
+	text-indent: -9999px;
+	display: inline-block;
+}
+
+a#home {
+	width: 10px;
+	background-position: 0px 0px;
+}
+a#home:hover, a#home:active {
+	background-position: 100px 0px;
+}
+
+#name {
+	background-color: #8D4722;
+	border-bottom: 5px solid #000000;
+	float: left;
+	font-size: 18pt;
+	font-weight: bold;
+	height: 55px;
+	margin: 0px 0px 0px 0px;
+	padding: 25px 0px 25px 0px;
+	text-align: center;
+	width: 310px;
+}
+
+#breadcrumb {
+	border-bottom: 1px solid #000000;
+	margin: 0px 10px 0px 10px;
+	padding: 5px;
+}
+
+.home_post {
+	margin: 0px 10px 0px 10px;
+	padding: 5px;
+}
+
+article {
+	overflow: auto;
+}
+
+article p{
+  float: left;
+  line-height : 1.5;
+  margin-right: 20px;
+  width: 290px;
+}
+
+.drop-cap{
+  float       : left;
+  font-size   : 3.26em;
+  font-weight: bold;
+  line-height : 0.5;
+  margin      : 0.205em 0.153em 0 0;
+}
+
+.drop-cap + span{
+  margin-left : -0.5em;
+}
+
+
+/* Right Column */
+
+#right_col_graphic img {
+	border: 5px solid black;
+	float: left;
+	width: 140px;
+}
+
+/* Footer */
+
+footer {
+	clear: both;
+}
+
+#globe img {
+	float: left;
+	width: 140px;
+	height: 140px;
+	border: 5px solid black;
+}
+
+#footer-center {
+	background-color: #D89D68; /* content background */
+	background-image: url(../imgs/footer/bookshelves_repeating.png);
+	background-position: 0px 95px; 
+	background-repeat: repeat-x;
+	float: left;
+	height: 150px;
+	width: 660px;
+}
+
+nav {
+	float: left;
+	text-align: center;
+	margin: 25px 0px 25px 0px; 
+	width: 100%;
+}
+
+#copyright {
+	clear: left;
+	font-size: 10pt;
+	font-family: serif;
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+
+#lamp img {
+	width: 140px;
+	height: 140px;
+	border: 5px solid black;
+	float: left;
+}
