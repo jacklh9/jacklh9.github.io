@@ -3,22 +3,33 @@
 <head>
   <link href="../stylesheets/default.css" rel="stylesheet" type="text/css">
   <link href="../stylesheets/blog.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
   <title>Blogs:Jack L. Hamilton</title>
 </head>
 <body>
 
 <div id="content">
 <div id="left_col_graphic">
-<img src="imgs/left_column_books.png">
+<img src="../imgs/left_column_books.png" alt="left column">
 </div>
 
-<div id="main">
+
+<main>
 
 <header>
 
-<div id="graphic-nav">
-<!-- img alt="Navigation Graphic" src="imgs/nav/books.jpg" -->
-</div><!-- div id="graphic-nav" --> 
+<div id="nav-graphic">
+ <ul id="menu">
+  <li class="left-books"><span>Left_Books</span></li>
+  <li class="home"><a href="../index.html">Home</a></li>
+  <li class="about"><a href="../about.html">About</a></li>
+  <li class="blogs"><a class="selected" href="./blog/index.html">Blogs</a></li>
+  <li class="contact"><a href="../contact.html">Contact</a></li>
+  <li class="projects"><a href="../projects.html">Projects</a></li>
+  <li class="resume"><a href="../resume.html">Resume</a></li>
+  <li class="right-books"><span>Right_Books</span></li>
+ </ul>
+</div><!-- div id="nav-graphic" -->
 
 <p id="name">
 Jack L. Hamilton
@@ -26,14 +37,17 @@ Jack L. Hamilton
 
 </header>
 
+<div id="breadcrumb">
+<a href="./index.html">Blogs</a>
+</div>
 
-<main>
+<div id="sections">
 
 <section id="20160104">
 
-<img src="#" alt="20160104_topic_graphic">
+<img src="../imgs/safe_thumbnail.png" alt="20160104_topic_graphic" class="topic-graphic-thumbnail">
 
-<article class="blog_post_summary">
+<article class="blog-post-summary">
 <div class="date"><a href="git.html">2016/01/04</a></div>
 <h2>Version Control: Why You Need It Before The Sun Comes Up!</h2>
 <p>
@@ -44,9 +58,9 @@ Today I'll be blogging a little about the importance of version control.
 
 <section id="20160115">
 
-<img src="#" alt="YYYYMMDD_topic_graphic">
+<img src="../imgs/blog_topic_image_placeholder.png" alt="YYYYMMDD_topic_graphic" class="topic-graphic-thumbnail">
 
-<article class="blog_post_summary">
+<article class="blog-post-summary">
 <div class="date"><a href="#">YYYY/MM/DD</a></div>
 <h2>Future Topic</h2>
 <p>
@@ -57,9 +71,9 @@ Topic Summary: Today I discuss the blah blah blah...
 
 <section id="20160201">
 
-<img src="#" alt="YYYYMMDD_topic_graphic">
+<img src="../imgs/blog_topic_image_placeholder.png" alt="YYYYMMDD_topic_graphic" class="topic-graphic-thumbnail">
 
-<article class="blog_post_summary">
+<article class="blog-post-summary">
 <div class="date"><a href="#">YYYY/MM/DD</a></div>
 <h2>Future Topic</h2>
 <p>
@@ -68,25 +82,58 @@ Topic Summary: Today I discuss the blah blah blah...
 </article>
 </section>
 
+<section id="20160301">
+
+<img src="../imgs/blog_topic_image_placeholder.png" alt="YYYYMMDD_topic_graphic" class="topic-graphic-thumbnail">
+
+<article class="blog-post-summary">
+<div class="date"><a href="#">YYYY/MM/DD</a></div>
+<h2>Future Topic</h2>
+<p>
+Topic Summary: Today I discuss the blah blah blah...
+</p>
+</article>
+</section>
+
+</div><!-- div id="sections" -->
+
 </main>
+
+<div id="right_col_graphic">
+<img src="../imgs/right_column_books.png" alt="right column">
+</div>
 
 <footer>
 
-<div id="text_nav">
-<a href="../index.html">Home</a> | 
-<a href="#">About</a> | 
-Blogs | 
-<a href="#">Contact</a> | 
-<a href="#">Projects</a> | 
-<a href="#">Resume</a>   
+<div id="globe">
+<img src="../imgs/footer/desk_globe.png" alt="Globe Graphic">
 </div>
 
-<div id="Copyright">
-(c) 2016 Jack L. Hamilton
+<div id="footer-center">
+
+<nav>
+<a href="../index.html">Home</a> | 
+<a href="../about.html">About</a> | 
+Blogs | 
+<a href="../contact.html">Contact</a> | 
+<a href="../projects.html">Projects</a> | 
+<a href="../resume.html">Resume</a>   
+</nav>
+
+<div id="copyright">
+&copy; 2016 Jack L. Hamilton
+</div>
+
+</div><!-- div id="nav" -->
+
+<div id="lamp">
+<img src="../imgs/footer/desk_lamp.png" alt="Library Lamp">
 </div>
 
 </footer>
 
+</div> <!-- id="content" -->
 </body>
 </html>
+
 
