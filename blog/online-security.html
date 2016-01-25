@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../stylesheets/default.css" rel="stylesheet" type="text/css">
+  <link href="../stylesheets/blog.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <title>Blogs:Jack L. Hamilton</title>
+</head>
+<body>
+
+<div id="content">
+<div id="left_col_graphic">
+<img src="../imgs/left_column_books.png" alt="left column">
+</div>
+
+
+<main>
+
+<header>
+
+<div id="nav-graphic">
+ <ul id="menu">
+  <li class="left-books"><span>Left_Books</span></li>
+  <li class="home"><a href="../index.html">Home</a></li>
+  <li class="about"><a href="../about.html">About</a></li>
+  <li class="blogs"><a class="selected" href="./blog/index.html">Blogs</a></li>
+  <li class="contact"><a href="../contact.html">Contact</a></li>
+  <li class="projects"><a href="../projects.html">Projects</a></li>
+  <li class="resume"><a href="../resume.html">Resume</a></li>
+  <li class="right-books"><span>Right_Books</span></li>
+ </ul>
+</div><!-- div id="nav-graphic" -->
+
+<p id="name">
+Jack L. Hamilton
+</p>
+
+</header>
+
+<div id="breadcrumb">
+<a href="./index.html">Blogs</a> > 2015/01/25
+</div>
+
+<article class="blog-post">
+<h2>2015/01/25: HOSTS file:Protecting Yourself a Little with Spybot and Your Hosts File</h2>
+
+<p>
+Today I discuss a simple little way to add a little, but important, bit of security while browsing the internet if using a Windows PC. I will be discussing how you can have a free anti-malware program called Spybot Search &amp; Destroy available <a href="https://www.safer-networking.org/private/details/#Free"  target="_blank">here</a> to help avoid getting viruses and spam malware from infecting your PC.
+</p>
+
+<p>
+Back in the "old" days of computing, if you opened an attachment or plugged in an infected USB stick into your PC, you could capture a virus or malware (a program that does bad things like hijack your browser, pop up a bunch of spam or use your PC as a server to send out more spam, for example). So you knew to do things like not trust USB sticks from untrusted sources or to have your anti-virus scan the USB stick first, and you knew to never open attachments from people you didn't trust or weren't expecting an attachment. While those precautions are still very necessary, you can still get infected by simply browsing to an infected website or a website designed to push malware to you via security holes in your browser that may not have been patched, yet.
+</p>
+
+<p>
+You NEED to be using some kind of anti-virus software at a minimum, but what I will tell you next is meant to SUPPLEMENT your anti-virus. As I mentioned earlier, go to the link I provided and (assuming you have local admin rights to your computer), consider installing Spybot Search &amp; Destroy. Once you've installed it, ensure you read the documentation (or prompts) to install and update the software. Once in the software, you will want to check the sub-program (from the Spybot menu) called "Immunization". What this does is it updates your PC's "Hosts" file and hardcodes an "invalid" IP address (internet address) from known world-wide spammers and malware sites whose javascripts and the like are known to infect browsers or cause spam popups. It basically tells your computer to not retrieve any javascript, web components, etcetera if the domain is one of those known culprits. The browser is told to look in a bogus location (in fact, it just points back to your own PC, which routes to nowhere) which helps stop dead cold in their tracks many little nefarious web scripts that might have otherwise wreaked havoc on your computer.
+</p>
+
+<p>
+Spybot and many other groups maintain an open-source community updated list of these nafarious domains. These lists are constantly updated. So I would set a monthly or quarterly reminder to launch your Spybot program, perform the update and then have it re-immunize your PC hosts file and get the latest domain list of bad domains. 
+</p>
+
+<p>
+I assure you that doing this on a regular basis will save your PC from many issues in the future. It's just one of many things you can do to browse safely. Until next time. -- JLH
+</p>
+
+<p>
+P.S. If you are a little technical and curious, you can see the entries that are made by opening your hosts file at the following location: C:\Windows\System32\drivers\etc\hosts. Note that there is no ".txt" extension.
+</p>
+
+<!-- Web related clip-art goes here. -->
+<p>
+<a href="https://www.safer-networking.org/private/details/#Free" target="_blank"><img src="../imgs/spybot_logo.png" /></a>
+</p>
+
+</article>
+</main>
+
+
+<div id="right_col_graphic">
+<img src="../imgs/right_column_books.png" alt="right column">
+</div>
+
+<footer>
+
+<div id="globe">
+<img src="../imgs/footer/desk_globe.png" alt="Globe Graphic">
+</div>
+
+<div id="footer-center">
+
+<nav>
+<a href="../index.html">Home</a> | 
+<a href="../about.html">About</a> | 
+Blogs | 
+<a href="../contact.html">Contact</a> | 
+<a href="../projects.html">Projects</a> | 
+<a href="../resume.html">Resume</a>   
+</nav>
+
+<div id="copyright">
+&copy; 2016 Jack L. Hamilton
+</div>
+
+</div><!-- div id="nav" -->
+
+<div id="lamp">
+<img src="../imgs/footer/desk_lamp.png" alt="Library Lamp">
+</div>
+
+</footer>
+
+</div> <!-- id="content" -->
+</body>
+</html>
+
+
