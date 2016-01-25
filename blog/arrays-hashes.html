@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../stylesheets/default.css" rel="stylesheet" type="text/css">
+  <link href="../stylesheets/blog.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <title>Blogs:Jack L. Hamilton</title>
+</head>
+<body>
+
+<div id="content">
+<div id="left_col_graphic">
+<img src="../imgs/left_column_books.png" alt="left column">
+</div>
+
+
+<main>
+
+<header>
+
+<div id="nav-graphic">
+ <ul id="menu">
+  <li class="left-books"><span>Left_Books</span></li>
+  <li class="home"><a href="../index.html">Home</a></li>
+  <li class="about"><a href="../about.html">About</a></li>
+  <li class="blogs"><a class="selected" href="./blog/index.html">Blogs</a></li>
+  <li class="contact"><a href="../contact.html">Contact</a></li>
+  <li class="projects"><a href="../projects.html">Projects</a></li>
+  <li class="resume"><a href="../resume.html">Resume</a></li>
+  <li class="right-books"><span>Right_Books</span></li>
+ </ul>
+</div><!-- div id="nav-graphic" -->
+
+<p id="name">
+Jack L. Hamilton
+</p>
+
+</header>
+
+<div id="breadcrumb">
+<a href="./index.html">Blogs</a> > 2016/01/25
+</div>
+
+<article class="blog-post">
+<h2>2016/01/25: Arrays vs Hashes</h2>
+
+<p>
+<span class="drop-cap">T</span>his week I will be talking about two of the most fundamental data structures in computer programming for storing data: arrays and hashes. Although you may have heard that databases are used for storing data, you could thing of arrays and hashes as temporary containers to manipulate data read from or to be sent to a database. These two data structures are quite useful and necessary to manipulate data.
+</p>
+
+<p>
+The first thing to understand in order to conceptualize what an array is, and later a hash, is to consider the core of data. Data is something you want to store. For example, lets suppose you wanted to store something as basic as just your first name--Jack, in my case. In programming you would make a variable called "first_name" and assign it the value "Jack", like so (in Ruby):
+</p>
+
+<p>
+<pre>
+<code>
+first_name = "Jack"
+</code>
+</pre>
+</p>
+
+<p>
+Now suppose you were asked to store all your classmates, too. This could quickly get cubersome:
+</p>
+
+<p>
+<pre>
+<code>
+first_name_student1 = "Jack"
+first_name_student2 = "Jill"
+first_name_student3 = "Billy"
+first_name_student4 = "Bob"
+</code>
+</pre>
+</p>
+
+<p>
+You can quickly see that this gets to be impractical really fast. Enter the concept of the array. The easiest way to think of arrays if you are new to them is to think of the times you have used a spreedsheet, like in Excel. We could represent the list of students as a column named "students" and place each name into it's own cell in a column. 
+</p>
+
+<p>
+<pre>
++-----------------+---------------+
+| row_number      | students      |
++-----------------+---------------+
+| 0               | Jack          |
+| 1               | Jill          |
+| 2               | Billy         |
+| 3               | Bob           |
++-----------------+---------------+
+</pre>
+</p>
+
+
+
+<p>
+In code, you would assign a "column's" rows to an array variable like this:
+</p>
+
+<p>
+<pre>
+<code>
+students = ["Jack", "Jill", "Billy", "Bob"]
+</code>
+</pre>
+</p>
+
+<p>
+Notice that like in a spreadsheet, there is a "row number" for each student. In programming we call this the element number. Unlike a row in a spreadsheet where we start counting with the number one, in programming we start at zero, because that's what computers start counting at. We could think of the row number as merely the student ID number. So in our example, here is how we would access Jack's first name:
+</p>
+
+<p>
+<pre>
+<code>
+print #{students[0]}
+OUTPUTS: 
+Jack
+</code>
+</pre>
+</p>
+
+<p>
+This is great and all but what happens when we want to store their last name? Well, we could apply the same concept and rename our array variables, i.e., the "columns" in the spreedsheet analogy, to "students_first" and "students_last", like so:
+</p>
+
+<p>
+<pre>
++-----------------+----------------+---------------+
+| student_ID      | students_first | students_last |
++-----------------+----------------+---------------+
+| 0               | Jack           | Hamilton      |
+| 1               | Jill           | Anderson      |
+| 2               | Billy          | Kid           |
+| 3               | Bob            | Barker        |
++-----------------+----------------+---------------+
+</pre>
+</p>
+
+<p>
+And once again, in code equivalent:
+</p>
+
+
+<p>
+<pre>
+<code>
+students_first = ["Jack", "Jill", "Billy", "Bob"]
+students_last = ["Hamilton", "Anderson", "Kid", "Barker"]
+print "#{students_first[2]} #{students_first[2]}"
+OUTPUTS:
+Billy Kid
+
+</code>
+</pre>
+</p>
+
+<p>
+Okay, so this is sort of okay. But what if we now want to store everyone's address, and then home phone, then cell phone, emergency contact person, and THEIR telephone number, etcetera. Now the array is becoming cumbersome just like when we needed a unique variable for each student, we're now finding that we need a unique array variable for each additional related piece of information for each student.
+</p>
+
+<p>
+What we need is the hash. A hash is what's known as an associative array. It lets you represent an object's properties, associating a value with a key, or in our student analogy, a student's attributes. For example, we know from our example that for each student, we need to retain the following information:
+</p>
+
+<p>
+<ul>
+<li>first_name</li>
+<li>last_name</li>
+<li>street_address</li>
+<li>city</li>
+<li>state</li>
+<li>zip</li>
+<li>home_phone</li>
+<li>cell_phone</li>
+</ul>
+</p>
+
+<p>
+As you will see below, we can MUCH more easily represent a student with a hash. We create a hash for each student, associating the individual student's information to the respective student attributes. We can still make use of the array concept and assign each student's hash object to the array element representing their student ID:
+</p>
+
+<p>
+<pre>
+<code>
+students[0] = {
+  :first_name => "Jack"
+  :last_name => "Hamilton"
+  :street_address => "1234 Hill St"
+  :city => "San Diego"
+  :state => "CA"
+  :zip => "92101"
+  :home_phone => "619-555-1234"
+  :cell_phone => "619-555-5678"
+}
+
+students[1] = {
+  :first_name => "Jill"
+  :last_name => "Anderson"
+  :street_address => "Area 51"
+  :city => "Las Vegas"
+  :state => "NV"
+  :zip => "89101"
+  :home_phone => "702-555-1234"
+  :cell_phone => "702-555-5678"
+}
+</code>
+</pre>
+</p>
+
+<p>
+We repeat for each student's info and access all their info with a print statement as follows:
+</p>
+
+<p>
+<pre>
+<code>
+students.each do |student|         # Grab each student hash from the students array
+  student.each do |key, value|     # Grab each key/value pair from the student hash
+    p "Key: #{key} contains Value: #{value}"    # Print it
+  end
+  puts "\n"  # A nice carriage-return after each student
+end
+
+OUTPUTS:
+"Key: first_name contains Value: Jack"
+"Key: last_name contains Value: Hamilton"
+"Key: street_address contains Value: 1234 Hill St"
+"Key: city contains Value: San Diego"
+"Key: state contains Value: CA"
+"Key: zip contains Value: CA"
+"Key: home_phone contains Value: 619-555-1234"
+"Key: cell_phone contains Value: 619-555-5678"
+
+"Key: first_name contains Value: Jill"
+"Key: last_name contains Value: Anderson"
+"Key: street_address contains Value: Area 51"
+"Key: city contains Value: Las Vegas"
+"Key: state contains Value: NV"
+"Key: zip contains Value: 89101"
+"Key: home_phone contains Value: 702-555-1234"
+"Key: cell_phone contains Value: 702-555-5678"
+</code>
+</pre>
+</p>
+
+
+<p>
+You can see just how powerful combining the concepts of arrays and hashes can be! Until next time. -- JLH
+</p>
+
+<p>
+<img src="../imgs/rubiks_cube.jpg" alt="rubiks cube image" />
+</p>
+
+</article>
+</main>
+
+
+<div id="right_col_graphic">
+<img src="../imgs/right_column_books.png" alt="right column">
+</div>
+
+<footer>
+
+<div id="globe">
+<img src="../imgs/footer/desk_globe.png" alt="Globe Graphic">
+</div>
+
+<div id="footer-center">
+
+<nav>
+<a href="../index.html">Home</a> | 
+<a href="../about.html">About</a> | 
+Blogs | 
+<a href="../contact.html">Contact</a> | 
+<a href="../projects.html">Projects</a> | 
+<a href="../resume.html">Resume</a>   
+</nav>
+
+<div id="copyright">
+&copy; 2016 Jack L. Hamilton
+</div>
+
+</div><!-- div id="nav" -->
+
+<div id="lamp">
+<img src="../imgs/footer/desk_lamp.png" alt="Library Lamp">
+</div>
+
+</footer>
+
+</div> <!-- id="content" -->
+</body>
+</html>
+
+

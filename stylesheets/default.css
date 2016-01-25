@@ -129,9 +129,17 @@ article {
 }
 
 article p{
-  float: left;
+  float: left; 
   line-height : 1.5;
   margin-right: 20px;
+}
+
+article pre{
+	float: left;
+}
+
+article ul{
+	float: left;
 }
 
 .drop-cap{
