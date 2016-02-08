@@ -45,8 +45,109 @@ Jack L. Hamilton
 <h2>2016/02/08: Basic Ruby Classes</h2>
 
 <p>
-<span class="drop-cap">B</span>lah blah blah<!-- Blog text goes here -->
+<span class="drop-cap">I</span>n today's blog post I'll be giving a very brief overview of how to set up a basic class. To begin, let's discuss what a class is. In object oriented programming, a class is a template for an object--a blue-print, if you will. And to further the analogy, let's build  a very basic house using classes.
 </p>
+
+<p>
+  We are going to create our template (class) of a house so that we can build a house for our friends Billy, Bob, and Joe. To minimize our work, we will create a template once, and use that to make a house for each of them, with perhaps a few distinct characteristics. We want to indicate what color is the house, what pet resides inside  and what car we might find in the garage.  Oh, and we should indicate who owns the house. We will use instance variables to keep track of this. Instance variables are variables that belong to a specific instance  of our object. While every house can accept  a pet  and vehicle  and color, each instance will be unique so that Billy's pet isn't going to be Bob's pet. Let's begin by defining the aforementioned attributes of these houses in our template. We will place the following code into a ruby file called "house.rb":
+</p>
+
+<p>
+  <pre>
+    <code>
+      class House
+       attr_accessor :owner, :color, :pet, :garaged_vehicle
+
+      def initialize(owner = nil, color = nil, pet = nil, vehicle = nil)
+        @owner = owner
+        @color = color
+        @pet = pet
+        @garaged_vehicle = vehicle
+       end
+
+       def print_details
+        puts "#{@owner} owns this #{@color} house."
+        puts "On the couch sits #{@owner}'s pet #{@pet}."
+        puts "In the garage you'll find a #{@garaged_vehicle}."
+       end
+      end
+    </code>
+  </pre>
+</p>
+
+<p>
+  Now we can assign everyone their houses based on their tastes.
+</p>
+
+
+<p>
+  <pre>
+    <code>
+      billys_house = House.new("Billy","","frog","")
+      billys_house.color = "green"
+      billys_house.pet = "turtle"
+      billys_house.garaged_vehicle = "motorcycle"
+
+      bobs_house = House.new("Bob","white","cat","Mustang")
+
+      joes_house = House.new()
+      joes_house.owner = "Joe"
+      joes_house.color = "blue"
+      joes_house.pet = "dog"
+      joes_house.garaged_vehicle = "truck"
+    </code>
+  </pre>
+</p>
+
+<p>
+Notice that Billy doesn't have all of his information in the beginning. He only knows he has a frog. However, later he decides to change his pet to a turtle.  Joe is even worse. When we first create Joe's house, he doesn't even know what he wants. We assign him ownership and his house attributes after-the-fact by setting the individual instance variables. This is allowed because we have declared those variables "attr_accessor" which allows us to use the dot-notation to read and write to these instance variables.  
+</p>
+
+<p>
+  Next we call the instance method "print_details" to print the details of the houses.
+</p>
+
+<p>
+  <pre>
+    <code>
+      billys_house.print_details
+      joes_house.print_details
+      bobs_house.print_details
+    </code>
+  </pre>
+</p>
+
+<p>
+  Which when you run the code with "ruby house.rb", the following gets output to the console/terminal/STDOUT:
+</p>
+
+<p>
+  <pre>
+    <code>
+      Billy owns this green house.
+      On the couch sits Billy's pet turtle.
+      In the garage you'll find a motorcycle.
+
+      Joe owns this blue house.
+      On the couch sits Joe's pet dog.
+      In the garage you'll find a truck.
+
+      Bob owns this white house.
+      On the couch sits Bob's pet cat.
+      In the garage you'll find a Mustang.
+    </code>
+  </pre>
+</p>
+
+
+<p>
+  Notice how everyone's own house knows its own content?! This is the
+  essence of a class. We used the class template to stamp out three
+  different instances (copies) of the House class for each of our friends
+  Billy, Bob and Joe. Pretty neat stuff. Until next time. -- JLH
+</p>
+
+
 
 <!-- Web related clip-art goes here. -->
 <img src="../imgs/ruby.png" />
