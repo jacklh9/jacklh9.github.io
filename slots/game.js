@@ -330,7 +330,7 @@ function SlotMachine(amountPerCredit) {
 		document.getElementById("header").innerHTML = 
 					"<h3>3-of-a-Kind Slot-o-Rama</h3>" + 
 					"<h4>$" + payout + " times bet</h4>" +
-					"<p>Max Bet = $" + multiplierMax + "</p>";
+					"<p>Max bet = " + multiplierMax + " credits</p>";
 		document.getElementById("credit_cost").innerHTML = "$" + creditCost + "<br>per credit";
 		document.getElementById("recent_win_payout").innerHTML = "Recent Win Payout:<br>$" + recentWinPayout;
 		document.getElementById("previous_turn_payout").innerHTML = "Previous Turn Payout:<br>$" + previousTurnPayout;
