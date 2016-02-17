@@ -1,39 +1,19 @@
-body {
-	background-color: #593425;
-	overflow: auto;
-	margin: 0;
-}
-
-
-#content{
-	background-color: #0B0200;
-	width: 850px;
-	margin: auto;
-	margin-top: 5px;
-	overflow: auto;
-}
-
-main {
-	background-color: #D89D68;
-	overflow: auto;
-}
-
-th {
-}
-
-.thin {
-	width: 10px;
-	height: 100px;
-}
-
-.fat {
-	width: 150px;
-	height: 100px;
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
 
 table{
-	text-align: center
+	width: 100%;
+	text-align: center;
+}
+
+th, td, h3, h2, p {
+	margin: 0px;
+	padding: 1px;
+	border: 0px;
+}
+
+.reel {
+	width: 100px;
+	height: 100px;
+	margin: 0px;
+	padding: 0px;
+	border: 5px solid black;
 }
