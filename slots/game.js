@@ -329,14 +329,14 @@ function SlotMachine(amountPerCredit) {
 	function updateSlotDisplays(player){
 		document.getElementById("header").innerHTML = 
 					"<h3>3-of-a-Kind Slot-o-Rama</h3>" + 
-					"<h4>$" + payout + " times bet</h4>" +
-					"<p>Max bet = " + multiplierMax + " credits</p>";
-		document.getElementById("credit_cost").innerHTML = "$" + creditCost + "<br>per credit";
-		document.getElementById("recent_win_payout").innerHTML = "Recent Win Payout:<br>$" + recentWinPayout;
-		document.getElementById("previous_turn_payout").innerHTML = "Previous Turn Payout:<br>$" + previousTurnPayout;
-		document.getElementById("current_bet").innerHTML = "Current Bet:<br>" + multiplier + " credit";
+					"<h4>$" + payout + " per credit bet<br>" +
+					"Max bet = " + multiplierMax + " credits</h4>";
+		document.getElementById("credit_cost").innerHTML = "<b>$" + creditCost + "</b><br>per credit";
+		document.getElementById("recent_win_payout").innerHTML = "Recent Win Payout:<br><b>$" + recentWinPayout + "</b>";
+		document.getElementById("previous_turn_payout").innerHTML = "Previous Turn Payout:<br><b>$" + previousTurnPayout + "</b>";
+		document.getElementById("current_bet").innerHTML = "Current Bet:<br><b>" + multiplier + " credit</b>";
 		if (player) {
-			document.getElementById("balance").innerHTML = "Balance:<br>$" + player.getBalance().toFixed(2);	
+			document.getElementById("balance").innerHTML = "Balance:<br><b>$" + player.getBalance().toFixed(2) + "</b>";	
 		}
 		outputResults();
 	};
