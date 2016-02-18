@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../stylesheets/default.css" rel="stylesheet" type="text/css">
+  <link href="../stylesheets/blog.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <title>Blogs:Jack L. Hamilton</title>
+</head>
+<body>
+
+<div id="content">
+<div id="left_col_graphic">
+<img src="../imgs/left_column_books.png" alt="left column">
+</div>
+
+
+<main>
+
+<header>
+
+<div id="nav-graphic">
+ <ul id="menu">
+  <li class="left-books"><span>Left_Books</span></li>
+  <li class="home"><a href="../index.html">Home</a></li>
+  <li class="about"><a href="../about.html">About</a></li>
+  <li class="blogs"><a class="selected" href="./index.html">Blogs</a></li>
+  <li class="contact"><a href="../contact.html">Contact</a></li>
+  <li class="projects"><a href="../projects.html">Projects</a></li>
+  <li class="resume"><a href="../resume.html">Resume</a></li>
+  <li class="right-books"><span>Right_Books</span></li>
+ </ul>
+</div><!-- div id="nav-graphic" -->
+
+<p id="name">
+Jack L. Hamilton
+</p>
+
+</header>
+
+<div id="breadcrumb">
+<a href="./index.html">Blogs</a> > 2016/02/17
+</div>
+
+<article class="blog-post">
+<h2>2016/02/17:JavaScript vs Ruby public, private, static methods</h2>
+
+<p>
+<span class="drop-cap">T</span>oday I'll be discussing private vs public methods and variables in JavaScript versus Ruby. Really quick, a private variable and private method is data and functions that cannot be accessed outside of the object. That is, another object cannot reach into the class defining a private variable and view or change it, nor can it reach in and run a method marked as private either. A private method is also known as a helper function becausse it might be just for the use of helping its owner object peform a task that is not meant to be accessed by anyone else. Outside objects, thus, are limited to only accessing public methods that may reveal the value of a private variable, or accessing a piece of data in the form of a public variable. This ensures that the author of an object can clearly segregate what data and tasks an outsider (via an outside object) has access to read/write and run.
+</p>
+
+<p>
+In Ruby, the following variables in the sample object are public and can be accessed and modified outside the class, as is shown in the example below.
+</p>
+
+<p>
+  <pre>
+    <code>
+
+class Paper_Note
+
+  attr_accessor :message
+
+  def initialize(message)
+    @message = message
+  end
+end
+
+my_public_note = Paper_Note.new("Anyone can read this!")
+
+puts ("Your note says: " + my_public_note.message)	# Your note says: Anyone can read this!
+my_public_note.message = "Anyone can update this!"
+puts ("Your note says: " + my_public_note.message)	# Your note says: Anyone can update this!
+
+    </code>
+  </pre>
+</p>
+<p>
+In JavaScript, this same behaviour is done as follows.
+</p>
+<p>
+  <pre>
+    <code>
+function PaperNote(message) {
+    this.message = message;
+}
+
+var myPublicNote = new PaperNote("Anyone can read this!");
+
+console.log(myPublicNote.message);	// Your note says: Anyone can read this!
+myPublicNote.message = "Anyone can update this!";
+console.log(myPublicNote.message); // Your note says: Anyone can update this!
+
+    </code>
+  </pre>
+</p>
+<p>
+Notice that in both scenarios, the "message" data is modified directly, with no control over who modifies it or what is inserted. 
+
+In the next example, we explore private methods and variables that prevent direct access to data. Here's an example of a bank account.
+Notice the use of the keyword "private". Any method defined below it is considered private and cannot be called by users outside of this class.
+
+Ruby:
+</p>
+<p>
+  <pre>
+    <code>
+class Bank_Account
+
+  def initialize(initial_balance, new_pin)
+    @balance = initial_balance
+    @pin = new_pin
+  end
+
+
+  def withdraw(amount, entered_pin)
+    if (@pin == entered_pin)
+      dispense_money(amount)
+    else
+      puts "Sorry, that is an invalid PIN #."
+    end
+  end
+
+  private
+
+  def dispense_money(amount)
+    @balance -= amount
+    puts "Dispensing $#{amount}. Your new balance is #{@balance}"
+  end
+
+end
+
+my_bank_account = Bank_Account.new(100, 2468)
+
+# Someone tries to take my money without proper authorization
+#my_bank_account.dispense_money(100)    #  This will fail because it's a private method
+                                        #  that can only be called from inside the object.
+
+# Results in "NoMethodError" for "dispense_money"
+
+# I will now withdraw money the legal way.
+my_bank_account.withdraw(20, 2468)   # $20 with correct pin # 2468
+
+#Dispensing $20. Your new balance is 80
+
+# I will now try to add money illegally.
+my_bank_account.balance = 10000
+
+# Results in NoMethodError for `balance='
+    </code>
+  </pre>
+</p>
+<p>
+In JavaScript, there are several ways to define methods. We'll explore how we determine the appropriate ones so we can come up with a solution similar to what we did in the previous Ruby Bank_Account class.
+</p>
+<p>
+  <pre>
+    <code>
+function BankAccount(initial_balance, new_pin) {
+    this.balance = initial_balance;   // (A)
+    this.pin = new_pin;               // (B)
+}
+
+
+//  public function that can't access the data
+
+BankAccount.prototype.printBalanceTest = function(){   // (C)
+    return this.balance;  
+};
+
+    </code>
+  </pre>
+</p>
+<p>
+At A and B, we start with public variables (using keyword "this") and at C, public function (using keyword "prototype"). The problem, as shown below, is that everyone can access the data directly, similar to the first Ruby and JavaScript programs in this article.
+</p>
+<p>
+  <pre>
+    <code>
+var myMoney = new BankAccount(100,2468)  // $100 with pin# 2468
+
+console.log(myMoney.balance);  // 100
+console.log(myMoney.pin);      // 2468
+console.log(myMoney.printBalanceTest()); // 100
+    </code>
+  </pre>
+</p>
+<p>
+As we did with Ruby, let's convert balance and pin to private variables and test again.
+</p>
+<p>
+  <pre>
+    <code>
+function BankAccount(initial_balance, new_pin) {
+    var balance = initial_balance;
+    var pin = new_pin;
+}
+
+
+//  public function that can't access the data
+
+BankAccount.prototype.printBalanceTest = function(){
+//    return balance;  // this won't work, results in error
+    return this.balance;  // this returns undefined
+}
+
+
+var myMoney = new BankAccount(100,2468);  // $100 with pin# 2468
+
+console.log(myMoney.balance);  // undefined
+console.log(myMoney.pin);      // undefined
+console.log(myMoney.printBalanceTest()); // undefined
+
+    </code>
+  </pre>
+</p>
+<p>
+So the above shows us that we've properly hidden the balance and PIN from the outside world, but it turns out public JS functions ALSO cannot
+access private variables. Well, what if we used private functions to read private variables?
+</p>
+<p>
+  <pre>
+    <code>
+function BankAccount(initial_balance, new_pin) {
+    var balance = initial_balance;
+    var pin = new_pin;
+    // console.log(printBalanceTest1()); // (A) prints undefined
+    console.log(printBalanceTest2()); // (B) prints 100
+
+    var printBalanceTest1 = function(){ // (C) one way to define a private method
+        return balance;
+    };
+
+    function printBalanceTest2() { // (D) the "hoisted method" approach for defining a private method
+        return balance;
+    }
+
+    console.log(printBalanceTest1()); // (E) prints 100
+}
+
+var myMoney = new BankAccount(100,2468);  // (F) $100 with pin# 2468
+// console.log(myMoney.printBalanceTest1()); // (G) has no method error
+// console.log(myMoney.printBalanceTest2()); // (H) has no method error
+    </code>
+  </pre>
+</p>
+<p>
+So the above is packed with lots of new information that will require a bit of analysis. The program starts at F when a new bank account is initialized with the "new" keyword and initial parameters passed in for an account with $100 and pin# 2468. In B and E, during the "constructor" phase of the initilization, we see that we've resolved the issue with being able to use a private function to access private variables. One interesting thing to note about defining private methods, the constructor cannot call "printBalanceTest1()" at A until it's been defined at C and can therefore only call it in E. This is because defining a private method using "var" requires the function variable name to define the function first before calling it. We can avoid this by using the syntax at D, known as hoisting the method. The JS compiler is able to read functions defined in this manner on first scan, and therefore the function is available for use anywhere, as is shown at B. For this reason, I will prefer to create my private methods using syntax at D.
+</p>
+<p>
+However, a new problem arises. We saw at the beginning of this article that public methods cannot access private variables. And private methods CAN access private variables. In G and H, the user cannot access these private methods to get his balance. What to do?  Well, what if we had a public method call a private method? That sounds logical. Let's see what happens.
+</p>
+<p>
+  <pre>
+    <code>
+function BankAccount(initial_balance, new_pin) {
+    var balance = initial_balance;
+    var pin = new_pin;
+
+    function printBalance() {  // hoisted private method
+        return balance;
+    }
+}
+
+BankAccount.prototype.printBalanceTest = function(){ // public method...
+    return printBalance();   // (A) ...calling a private method in his own class. What will happen next?
+};
+
+var myMoney = new BankAccount(100,2468);
+console.log(myMoney.printBalanceTest()); // (B) Error: printBalance() is not defined
+    </code>
+  </pre>
+</p>
+<p>
+Well this is interesting. A fails. It SEEMS logical and intuitive that the public method at A 
+SHOULD have access to all its own class' methods, including private ones, but this actually incorrect in JavaScript.
+The answer is to define a hybrid of public and private methods called a "privileged method". 
+In the next example, we'll see how to use one to solve our dilemma.
+</p>
+<p>
+  <pre>
+    <code>
+function BankAccount(initial_balance, new_pin) {
+    var balance = initial_balance;
+    var pin = new_pin;
+    //console.log(this.clientPrintBalance()); // (A) Error: undefined method
+
+    function printBalance() {  // hoisted private method
+        return balance;
+    }
+
+    this.clientPrintBalance = function() { // (B) privileged method due to keyword "this"
+        return printBalance();
+    }
+
+    console.log(this.clientPrintBalance()); // (C)
+}
+
+var myMoney = new BankAccount(100,2468);
+console.log(myMoney.clientPrintBalance()); // (D) prints "100"--yay!
+    </code>
+  </pre>
+</p>
+<p>
+Success! Notice the syntax of a privileged function at B. There is no hoisting this type of method (that I know of yet), therefore A fails 
+as expected and C does not, as expected. And as wanted, we get the added benefit of the external client at D being able to print the balance as well.
+We now have all the components to build our Ruby equivalent of Bank_Account but in JavaScript.
+</p>
+<p>
+  <pre>
+    <code>
+function BankAccount(initial_balance, new_pin) {
+    var balance = initial_balance;
+    var pin = new_pin;
+
+    this.withdraw = function(amount, entered_pin) {
+        if (pin === entered_pin){
+            dispenseMoney(amount);
+        } else {
+            console.log("Sorry, that is an invalid PIN #.");
+        }
+    }
+
+    this.getBalance = function(entered_pin) {
+        if (pin === entered_pin){
+            console.log("Current Balance: $" + balance);
+        } else {
+            console.log("Sorry, that is an invalid PIN #.");
+        }
+    }
+
+    /* Private Methods */
+
+    function dispenseMoney(amount) {
+        balance -= amount;
+        console.log("Dispensing $" + amount +
+                    " Your new balance is $" + balance);
+    }
+}
+
+myBankAccount = new BankAccount(100,2468);
+
+// Someone tries to take my money without proper authorization
+//myBankAccount.dispenseMoney(100)  // (A) Error: no public method 'dispenseMoney()'
+myBankAccount.withdraw(100,1234)  // (B) Sorry, that is an invalid PIN #.
+
+// I will now withdraw money the legal way.
+myBankAccount.withdraw(20,2468)  // (C) Dispensing $20 Your new balance is $80
+
+// I will now try to add money illegally.
+myBankAccount.balance = 10000;      // (D) No error
+console.log(myBankAccount.balance)  // (E) 10000
+myBankAccount.getBalance(1234)      // (F) Sorry, that is an invalid PIN #.
+myBankAccount.getBalance(2468)      // (G) Current Balance: $80
+    </code>
+  </pre>
+</p>
+<p>
+We confirm in A that private method dispenseMoney() cannot be accessed from the outside world. In B and F, someone with the wrong PIN# cannot make use of the privileged methods withdraw() and getBalance(). In C and G, the correct PIN# allows privilege methods withdraw() and getBalance() to access and manipulate private variables. In C and D, we see that outsiders can TRY to manipulate private variables, but they are not in fact accessing them, as shown in line G when we confirm that private balance variable is STILL $80, despite receiving no errors when we thought we updated it in line D and "validated" in line E--those were in fact updating public variables that we were able to define in D, but does not access nor overwrite the actual private variables.
+
+One final topic I want to discuss is the use of static methods. A static method is simply a method that is generic enough at the class level that it does not need to be attached to a class instance and can be called directly from the class itself. In the following example in Ruby, it would be silly to have to create a new instance of bank "BoW" when all we want is the official name of the bank that exists in all BoW objects. 
+</p>
+<p>
+  <pre>
+    <code>
+# Static Method example with Ruby
+class BoW
+  @bank_name = "Bank of the World"
+
+  def get_official_name1 # (A) Incorrect way to implement a static method
+    @bank_name
+  end
+
+
+  def self.get_official_name2 # (B) Indicate static method with "self"
+    @bank_name
+  end
+
+
+end
+
+# puts "I bank at " + BoW.bank_name + "!"  #  (C) Error: canot access private vars, remember?
+# puts "I bank at " + BoW.get_official_name1 + "!"  #  (D) No method error
+puts "I bank at " + BoW.get_official_name2 + "!"  #  (E) I bank at Bank of the World!
+    </code>
+  </pre>
+</p>
+<p>
+At A we define a standard method. However, this fails at D since we never instantiate a new object BoW. At C we confirm that "bank_name" is a private variable and cannot be directly accessed. At B we use keyword "self" to indicate this is a static method and confirm at line E. Notice at no point do we ever need to instantiate an object BoW to use method "get_official_name2", nor to access variable "bank_name". Next we perform the same analysis on JavaScript's static method.
+</p>
+<p>
+  <pre>
+    <code>
+function BoW() {
+    var bank_name1 = "Bank of the World"; // This will never be accessible in our actual static method
+
+    function get_official_name_A() { // (A) Wrong!
+        return bank_name1;
+    }
+
+    this.get_official_name_B = function(){ // (B) Wrong!
+        return bank_name1;
+    };
+}
+
+BoW.prototype.get_official_name_C = function() { // (C) Wrong!
+    return bank_name1;
+};
+
+BoW.get_official_name_D = function() { // (D) Not quite!
+    return bank_name1;
+};
+
+BoW.get_official_name_E = function() { // (E) Nope!
+    return BoW.bank_name1;
+};
+
+BoW.get_official_name_F = function() { // (F) Finally!
+    var bank_name2 = "Bank of the World";
+    return bank_name2;
+};
+
+
+//console.log("I bank at " + BoW.bank_name1 + "!");  // I bank at undefined!
+//console.log("I bank at " + BoW.get_official_name_A() + "!");  //  no method error
+//console.log("I bank at " + BoW.get_official_name_B() + "!");  //  no method error
+//console.log("I bank at " + BoW.get_official_name_C() + "!");  //  error
+//console.log("I bank at " + BoW.get_official_name_D() + "!");  // bank_name1 not defined
+//console.log("I bank at " + BoW.get_official_name_E() + "!");  // I bank at undefined!
+console.log("I bank at " + BoW.get_official_name_F() + "!");  // I bank at Bank of the World!
+    </code>
+  </pre>
+</p>
+<p>
+In this case, syntax F is how we would create a static method that allows us to make use of a function that doesn't make sense for us to have to instantiate an object to use the generic method. Below is the cleaned up version.
+</p>
+<p>
+  <pre>
+    <code>
+// Static Method in JavaScript
+function BoW() {}
+BoW.get_official_name = function() {
+    var bank_name = "Bank of the World";
+    return bank_name;
+};
+
+console.log("I bank at " + BoW.get_official_name() + "!");  // I bank at Bank of the World!
+    </code>
+  </pre>
+</p>
+<p>
+Well, that was a lot of information to cover. Until next time. -- JLH
+</p>
+
+<!-- Web related clip-art goes here. -->
+<img src="../imgs/javascript.png" />
+
+</article>
+</main>
+
+
+<div id="right_col_graphic">
+<img src="../imgs/right_column_books.png" alt="right column">
+</div>
+
+<footer>
+
+<div id="globe">
+<img src="../imgs/footer/desk_globe.png" alt="Globe Graphic">
+</div>
+
+<div id="footer-center">
+
+<nav>
+<a href="../index.html">Home</a> | 
+<a href="../about.html">About</a> | 
+Blogs | 
+<a href="../contact.html">Contact</a> | 
+<a href="../projects.html">Projects</a> | 
+<a href="../resume.html">Resume</a>   
+</nav>
+
+<div id="copyright">
+&copy; 2016 Jack L. Hamilton
+</div>
+
+</div><!-- div id="nav" -->
+
+<div id="lamp">
+<img src="../imgs/footer/desk_lamp.png" alt="Library Lamp">
+</div>
+
+</footer>
+
+</div> <!-- id="content" -->
+</body>
+</html>
+
+
