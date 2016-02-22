@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../stylesheets/default.css" rel="stylesheet" type="text/css">
+  <link href="../stylesheets/blog.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <title>Blogs:Jack L. Hamilton</title>
+</head>
+<body>
+
+<div id="content">
+<div id="left_col_graphic">
+<img src="../imgs/left_column_books.png" alt="left column">
+</div>
+
+
+<main>
+
+<header>
+
+<div id="nav-graphic">
+ <ul id="menu">
+  <li class="left-books"><span>Left_Books</span></li>
+  <li class="home"><a href="../index.html">Home</a></li>
+  <li class="about"><a href="../about.html">About</a></li>
+  <li class="blogs"><a class="selected" href="./index.html">Blogs</a></li>
+  <li class="contact"><a href="../contact.html">Contact</a></li>
+  <li class="projects"><a href="../projects.html">Projects</a></li>
+  <li class="resume"><a href="../resume.html">Resume</a></li>
+  <li class="right-books"><span>Right_Books</span></li>
+ </ul>
+</div><!-- div id="nav-graphic" -->
+
+<p id="name">
+Jack L. Hamilton
+</p>
+
+</header>
+
+<div id="breadcrumb">
+<a href="./index.html">Blogs</a> > 2016/02/22
+</div>
+
+<article class="blog-post">
+<h2>2016/02/22: </h2>
+
+<p>
+<span class="drop-cap">I</span>magine joining a company where you are replacing a programmer who has left you with a decade's worth of code. The code has all sorts of flags and features. Your new boss is anxious to quickly get you up to speed so you can start modifying the code and adding new features. There's only one problem--one MAJOR problem. The code has no test cases. There is no [easy] way to ensure the code isn't already broken from a feature the previous programmer may have been working on. There is no [easy] way to ensure the modifications you are about to introduce aren't going to break all kinds of other features used by other systems downstream. Sounds like a nightmare, right? Well, it's worse--it's reality. All too often, programmers and companies have left the act of writing tests for their code for the very end, or for when the code needs to be modified. The above nightmare scenario would greatly have benefitted from the concept of Test-Driven Development.
+</p>
+
+<p>
+In today's blog, I'll be discussing a high-level overview of the concept of Test Driven Development. It is said that TDD is what allows you, the programmer, to sleep at night. It allows that warm fuzzy feeling that the code operates now, post feature implementation, no different than before, albeit with the new feature added to it. So how does one use TDD to keep the aforementioned nightmare from becoming reality? It all starts at the beginning.
+</p>
+<p>
+The concept of TDD is credited to Kent Bock. The idea is that before you begin coding, you must first clearly understand the program requirements, through either use cases, user stories, requirements docs, etcetera. You will then apply a 3-stage cycle known as "RED" > "GREEN" > "REFACTOR" and is summarized as follows:
+<ol>
+<li>Write a new test</li>
+<li>Confirm all previous tests pass and the new one fails (RED moment)</li>
+<li>Do the minimum amount of code necessary to make the new test pass (GREEN moment)</li>
+<li>REFACTOR the code and ensure all tests remain green</li>
+<li>Repeat cycle until your project is done</li>
+</ol>
+</p>
+<p>
+The key is that the following has to be done FROM THE BEGINNING of the project so that you have your series of prior tests to ensure the program hasn't broken. In addition, making the new test fail initially is important to ensure that it CAN indeed determine failure. (What good is a test that always passes?) This is your chance to confirm it catches errors. And then you add as little code, however inefficient or absurd, to make the test pass and not break previous tests. Once passed, you can then safely refactor the code as needed and have the tests to prove your refactoring hasn't broken the program. If it does, you will rely on your source control system to revert.
+</p>
+<p>
+If it isn't already clear, I will spell out the benefits of this process. (1) This iterative development process, according to proponents of TDD, makes programmers more efficient as it promotes rapid development with little to no downtime from tracking bugs (as the constant testing should in theory rule out bugs from the get-go), (2) inherently produces stable software and (3) because of all the test cases already written, doesn't leave the possibility of tests being an afterthough for the end of the project where most likely it will never get written due to project deadlines and future workload pushing the tests to the back-burner. With the tests already written, the program is future-proofed from errors introduced in future modifications not being caught.
+</p>
+<p>
+Think back to the initial nightmare scenario I brought up, taken from a real life situation from my personal experience. It is clear to see how that scenario would be much less intimidating had TDD concepts been applied. Obviously this is just a high level overview, but you should be able to get the gist of why applying TDD principles to ones coding is of extreme importance. Maybe you'll finally have peace of mind in your future releases. Until next time. -- JLH
+</p>
+
+
+<!-- Web related clip-art goes here. -->
+<img src="../imgs/checklist.png" />
+
+</article>
+</main>
+
+
+<div id="right_col_graphic">
+<img src="../imgs/right_column_books.png" alt="right column">
+</div>
+
+<footer>
+
+<div id="globe">
+<img src="../imgs/footer/desk_globe.png" alt="Globe Graphic">
+</div>
+
+<div id="footer-center">
+
+<nav>
+<a href="../index.html">Home</a> | 
+<a href="../about.html">About</a> | 
+Blogs | 
+<a href="../contact.html">Contact</a> | 
+<a href="../projects.html">Projects</a> | 
+<a href="../resume.html">Resume</a>   
+</nav>
+
+<div id="copyright">
+&copy; 2016 Jack L. Hamilton
+</div>
+
+</div><!-- div id="nav" -->
+
+<div id="lamp">
+<img src="../imgs/footer/desk_lamp.png" alt="Library Lamp">
+</div>
+
+</footer>
+
+</div> <!-- id="content" -->
+</body>
+</html>
+
+
