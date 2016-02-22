@@ -49,16 +49,17 @@ Jack L. Hamilton
 <h3>Table of Contents</h3>
 <p>
 <ul>
-<li>object literal</li>
-<li>public functions (constructor and prototype)</li>
-<li>private functions (2 types, including the hoisted version)</li>
-<li>privileged functions (has access to private and public vars)</li>
-<li>static function (no need to instantiate)</li>
+<li><a href="#object_literal">object literal</a></li>
+<li><a href="#public_functions">public functions</a> (constructor and prototype)</li>
+<li><a href="#private_functions">private functions</a> (2 types, including the hoisted version)</li>
+<li><a href="#privileged_functions">privileged functions</a> (has access to private and public vars)</li>
+<li><a href="#static_functions">static function</a>(no need to instantiate)</li>
 </ul>
 </p>
 </section>
 
 <section id="object_literal">
+<a name="object_literal"></a>
 <h3>object literal</h3>
 <p>
 <pre>
@@ -74,8 +75,11 @@ phonebookEntry.phone = function() {          // objects can contains functions
 </code>
 </pre>
 </p>
+</section>
+
+<section id="object_literal2">
 <p>
-Alternative creation. Uses colon syntax, similar to key-value pairs in a Ruby hash.
+Object Literal: Alternative creation. Uses colon syntax, similar to key-value pairs in a Ruby hash.
 </p>
 <p>
 <pre>
@@ -96,6 +100,7 @@ phonebookEntry.phone(); // Calling The Ghostbusters at (650) 555-2368...
 </section>
 
 <section id="public_functions">
+<a name="public_functions"></a>
 <h3>public functions (constructor and prototype)</h3>
 <p>
 <pre>
@@ -117,8 +122,10 @@ Person.prototype.speak = function(){
 </section>
 
 <section id="private_privileged_functions">
-<h3>private functions (2 types, including the hoisted version)</h3>
-<h3>privileged functions (has access to private and public vars)</h3>
+<a name="private_functions"></a>
+<a name="privileged_functions"></a>
+<h3>private functions (2 types, including the hoisted version)</br>
+privileged functions (has access to private and public vars)</h3>
 <p>
 <pre>
 <code>
@@ -159,6 +166,7 @@ console.log(myBalance);
 </section>
 
 <section id="static_functions">
+<a name="static_functions"></a>
 <h3>static function (no need to instantiate)</h3>
 <p>
 <pre>
