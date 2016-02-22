@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../stylesheets/default.css" rel="stylesheet" type="text/css">
+  <link href="../stylesheets/project.css" rel="stylesheet" type="text/css">
+  <link href="../stylesheets/project_cheat-sheet.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <title>Projects:Jack L. Hamilton</title>
+</head>
+<body>
+
+<div id="content">
+<div id="left_col_graphic">
+<img src="../imgs/left_column_books.png" alt="left column">
+</div>
+
+
+<main>
+
+<header>
+
+<div id="nav-graphic">
+ <ul id="menu">
+  <li class="left-books"><span>Left_Books</span></li>
+  <li class="home"><a href="../index.html">Home</a></li>
+  <li class="about"><a href="../about.html">About</a></li>
+  <li class="blogs"><a href="../blog/index.html">Blogs</a></li>
+  <li class="contact"><a href="../contact.html">Contact</a></li>
+  <li class="projects"><a class="selected" href="../projects.html">Projects</a></li>
+  <li class="resume"><a href="../resume.html">Resume</a></li>
+  <li class="right-books"><span>Right_Books</span></li>
+ </ul>
+</div><!-- div id="nav-graphic" -->
+
+<p id="name">
+Jack L. Hamilton
+</p>
+
+</header>
+
+<div id="breadcrumb">
+<a href="../projects.html">Projects</a> > 2016/02/22
+</div>
+
+<article class="project-post">
+<h2>2016/02/22: JavaScript Cheat-Sheet: Objects and Functions Examples</h2>
+
+<section>
+<h3>Table of Contents</h3>
+<p>
+<ul>
+<li>object literal</li>
+<li>public functions (constructor and prototype)</li>
+<li>private functions (2 types, including the hoisted version)</li>
+<li>privileged functions (has access to private and public vars)</li>
+<li>static function (no need to instantiate)</li>
+</ul>
+</p>
+</section>
+
+<section>
+<h3>object literal</h3>
+<p>
+<pre>
+<code>
+var phonebookEntry = new Object(); // alternative 1
+var phonebookEntry = {};           // alternative 2
+
+phonebookEntry.name = 'The Ghostbusters';    // can add properties "outside" via dot-notation
+phonebookEntry["number"] = '(650) 555-2368'; // can use bracket notation so long as property is quoted
+phonebookEntry.phone = function() {          // objects can contains functions
+  console.log('Calling ' + this.name + ' at ' + this.number + '...');
+};
+</code>
+</pre>
+</p>
+<p>
+Alternative creation. Uses colon syntax, similar to key-value pairs in a Ruby hash.
+</p>
+<p>
+<pre>
+<code>
+var phonebookEntry = {
+    name: 'The Ghostbusters',
+    number: '(650) 555-2368',
+    phone: function() {
+        console.log('Calling ' + this.name + ' at ' + this.number + '...');
+    }
+};
+
+console.log(phonebookEntry.hasOwnProperty('phone')); // true
+phonebookEntry.phone(); // Calling The Ghostbusters at (650) 555-2368...
+</code>
+</pre>
+</p>
+</section>
+
+<section>
+<h3>public functions (constructor and prototype)</h3>
+<p>
+<pre>
+<code>
+// Constructor function (public)
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Prototypes (public): added to all objects made by constructor (saves memory)
+Person.prototype.speak = function(){
+	console.log("Hi");
+}
+</code>
+</pre>
+</p>
+	
+</section>
+
+<section>
+<h3>private functions (2 types, including the hoisted version)</h3>
+<h3>privileged functions (has access to private and public vars)</h3>
+<p>
+<pre>
+<code>
+function Person(first,last,age) {
+   this.firstname = first;
+   this.lastname = last;
+   this.age = age;
+   var bankBalance = 7500;
+
+   // Function Expression
+   // private due to "var" keyword
+   // can only be used internally, and only after declared at run-time.
+   var returnBalance = function() {
+      return bankBalance;
+   };
+   
+   // Function Declaration
+   // private; an alias of form: var x = function (){...};
+   // but hoisted and can be used internally before declared at run-time.
+   function returnBalanceAlso() {
+      return bankBalance;
+   }
+       
+   // privileged due to "this" keyword; accessible by public and can access private methods/vars
+   this.askTeller = function() {
+       return returnBalance
+   };
+}
+
+var john = new Person('John','Smith',30);
+console.log(john.returnBalance);
+var myBalanceMethod = john.askTeller();
+var myBalance = myBalanceMethod();
+console.log(myBalance);
+</code>
+</pre>
+</p>
+</section>
+
+<section>
+<h3>static function (no need to instantiate)</h3>
+<p>
+<pre>
+<code>
+function BoW() {}
+BoW.get_official_name = function() {
+    var bank_name = "Bank of the World";
+    return bank_name;
+};
+
+console.log("I bank at " + BoW.get_official_name() + "!");  // I bank at Bank of the World!
+</code>
+</pre>
+</p>
+</section>
+
+</article>
+</main>
+
+<div id="right_col_graphic">
+<img src="../imgs/right_column_books.png" alt="right column">
+</div>
+
+<footer>
+
+<div id="globe">
+<img src="../imgs/footer/desk_globe.png" alt="Globe Graphic">
+</div>
+
+<div id="footer-center">
+
+<nav>
+<a href="../index.html">Home</a> | 
+<a href="../about.html">About</a> | 
+<a href="../blog/index.html">Blogs</a> | 
+<a href="../contact.html">Contact</a> | 
+<a href="../projects.html">Projects</a> | 
+<a href="../resume.html">Resume</a>   
+</nav>
+
+<div id="copyright">
+&copy; 2016 Jack L. Hamilton
+</div>
+
+</div><!-- div id="nav" -->
+
+<div id="lamp">
+<img src="../imgs/footer/desk_lamp.png" alt="Library Lamp">
+</div>
+
+</footer>
+
+</div> <!-- id="content" -->
+</body>
+</html>
+
+
