@@ -52,7 +52,9 @@ Jack L. Hamilton
 In today's blog, I'll be discussing a high-level overview of the concept of Test Driven Development. It is said that TDD is what allows you, the programmer, to sleep at night. It allows that warm fuzzy feeling that the code operates now, post feature implementation, no different than before, albeit with the new feature added to it. So how does one use TDD to keep the aforementioned nightmare from becoming reality? It all starts at the beginning.
 </p>
 <p>
-The concept of TDD is credited to Kent Bock. The idea is that before you begin coding, you must first clearly understand the program requirements, through either use cases, user stories, requirements docs, etcetera. You will then apply a 3-stage cycle known as "RED" > "GREEN" > "REFACTOR" and is summarized as follows:
+The concept of TDD is credited to Kent Bock. The idea is that before you begin coding, you must first clearly understand the program requirements, through either use cases, user stories, requirements docs, etcetera. You will then apply a 3-stage cycle known as "RED" &gt; "GREEN" &gt; "REFACTOR" and is summarized as follows:
+</p>
+
 <ol>
 <li>Write a new test</li>
 <li>Confirm all previous tests pass and the new one fails (RED moment)</li>
@@ -60,7 +62,7 @@ The concept of TDD is credited to Kent Bock. The idea is that before you begin c
 <li>REFACTOR the code and ensure all tests remain green</li>
 <li>Repeat cycle until your project is done</li>
 </ol>
-</p>
+
 <p>
 The key is that the following has to be done FROM THE BEGINNING of the project so that you have your series of prior tests to ensure the program hasn't broken. In addition, making the new test fail initially is important to ensure that it CAN indeed determine failure. (What good is a test that always passes?) This is your chance to confirm it catches errors. And then you add as little code, however inefficient or absurd, to make the test pass and not break previous tests. Once passed, you can then safely refactor the code as needed and have the tests to prove your refactoring hasn't broken the program. If it does, you will rely on your source control system to revert.
 </p>
