@@ -86,10 +86,14 @@ nav a {
     font-size: 10pt;
     text-align: center;
     text-decoration: none;
-	color: #FFFFFF;
+	color: #000000;
 	background-color: #8D4722;
 	margin: 5px 0px;
     padding: 5px 15px;
+}
+
+nav a:hover {
+	color: #FFFFFF;
 }
 
 /* *** THE COLUMNS *** */
