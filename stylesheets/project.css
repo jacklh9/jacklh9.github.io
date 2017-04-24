@@ -11,6 +11,11 @@ img.project-graphic-thumbnail {
 	margin: 15px 5px 5px 5px;
 }
 
+article img {
+	float:left;
+	clear: both;
+}
+
 article.project-summary  {
 	float: left;
 	margin: 10px 10px 10px 10px;
@@ -29,9 +34,7 @@ article.project-summary  {
 }
 
 article.project-post {
-	margin: 10px 10px 10px 10px;
-	max-height: 460px;
-	overflow: auto;
+	margin: 10px 20px 10px 20px;
 }
 
 
