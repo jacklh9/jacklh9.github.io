@@ -1,49 +1,195 @@
+/* *** ENTIRE PAGE *** */
 body {
 	background-color: #593425;
 	font-family: 'Playfair Display', sans-serif;
-	overflow: auto;
 	margin: 0;
+	padding: 0;
+	font-size: 0;
 }
 
-#content{
-	background-color: #0B0200;
-	width: 960px;
-	margin: auto;
-	margin-top: 5px;
-	overflow: auto;
+* {
+	font-size: 12pt;
 }
 
-/* Left Column */
-#left_col_graphic img {	
-	border: 5px solid #000000;
-	float: left;
-	width: 140px;
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
+/* *** THE COLUMNS *** */
 
-/* Main Content Column */
+.margin_column {
+	display: inline-block;	
+   	width: 150px;
+	height: 639px;	
+   	margin: 0;
+   	padding: 0;
+	background-color: #000000;
+	background-repeat: no-repeat;
+}
+
+#left_col {
+	background-image: url(../imgs/left_column_books.png)
+}
+
+/* Middle Column */
 
 main {
+	display: inline-block;
+   	padding-bottom:100px;   /* Height of the footer */
 	background-color: #D89D68;
-	float: left;
-    width: 660px;
+	margin: 0;
+	padding: 0;
+	height: 639px;
+	min-height:100%;
+   	position:relative;
 }
 
-/* Header */
+#right_col {
+	background-image: url(../imgs/right_column_books.png)
+}
+
+/* Main (Middle) Content Column Addendum*/
+
+/************************
+header
+************************/
 
 header {
-	border-top: 5px solid #000000;
-	border-bottom: 5px solid #000000;
-	overflow: auto;
+	margin: 0;
+	padding: 0;
+	height: 100px;
+}
+
+#left-third{
+	
+}
+
+#name {
+	background-color: #8D4722;
+	color: #FFFFFF;
+	font-size: 18pt;
+	font-weight: none;
+	height: 30pt;
+	text-align: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	font-size: 12pt;
+	float: left;
+	text-align: center;
+	margin: 5px 0px 5px 0px; 
+	width: 100%;            
+}
+
+nav a {
+    border: 1px solid;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+	color: #FFFFFF;
+	background-color: #8D4722;
+	display: inline-block;
+	margin: 0;
+	padding: 10;
+}
+
+content {
+	padding:10px;
+    padding-bottom:100px;   /* Height of the footer */
 }
 
 
-#nav-graphic {
-	background-color: #0B0200;
+#breadcrumb {
+	border-bottom: 1px solid #000000;
+	margin: 0px 10px 0px 10px;
+	padding: 5px;
+}
+
+.home_post {
+	margin: 0px 10px 0px 10px;
+	padding: 5px;
+}
+
+article {
+	overflow: auto;
+	max-height: 460px;
+}
+
+article p{
+  float: left; 
+  line-height : 1.5;
+  margin-right: 20px;
+}
+
+article pre{
 	float: left;
-	height: 100px; 
-	margin: 0px 0px 0px 0px;
-	width: 330px;
+}
+
+article ul{
+	float: left;
+}
+
+.drop-cap{
+  float       : left;
+  font-size   : 3.26em;
+  font-weight: bold;
+  line-height : 0.5;
+  margin      : 0.205em 0.153em 0 0;
+}
+
+.drop-cap + span{
+  margin-left : -0.5em;
+}
+
+#library-globe {
+	margin-right: 20px;
+	text-align: center;
+}
+
+footer {
+	width: 100%;
+}
+
+#copyright {
+	padding: 5px;
+	margin: 0px;
+	font-family: serif;
+	font-size: 10pt;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+#footer-graphic {
+
+	background-color: #D89D68;
+	background-image: url(../imgs/footer/bookshelves_repeating.png);
+	background-position: 0px 100px; 
+	background-repeat: repeat-x;
+	height: 100px;
+	width: 100%;
+}
+
+/************************************************************************************
+Bookshelf Interactice Menu Graphic
+*************************************************************************************/
+
+#nav-graphic {
+	position:relative;
+	bottom:0;
+	width:100%;
+	background-color: #0B0200;
+	height: 100px;   /* Height of the footer */
+	margin: auto;
+	background-image: url(../imgs/footer/bookshelves_repeating.png)
+	background-repeat: repeat-x;
+
 }	
 
 ul#menu {
@@ -99,79 +245,18 @@ ul#menu {
 #menu li.right-books { height: 100px; width: 114px; }
 	#menu li.right-books span{ background-position: -200px 0px; }
 
-#name {
-	background-color: #8D4722;
-	color: #FFFFFF;
-	float: left;
-	font-size: 18pt;
-	font-weight: bold;
-	height: 50px;
-	margin: 0px 0px 0px 0px;
-	padding: 25px 0px 25px 0px;
-	text-align: center;
-	width: 330px;
-}
-
-#breadcrumb {
-	border-bottom: 1px solid #000000;
-	margin: 0px 10px 0px 10px;
-	padding: 5px;
-}
-
-.home_post {
-	margin: 0px 10px 0px 10px;
-	padding: 5px;
-}
-
-article {
-	overflow: auto;
-	max-height: 460px;
-}
-
-article p{
-  float: left; 
-  line-height : 1.5;
-  margin-right: 20px;
-}
-
-article pre{
-	float: left;
-}
-
-article ul{
-	float: left;
-}
-
-.drop-cap{
-  float       : left;
-  font-size   : 3.26em;
-  font-weight: bold;
-  line-height : 0.5;
-  margin      : 0.205em 0.153em 0 0;
-}
-
-.drop-cap + span{
-  margin-left : -0.5em;
-}
-
-#library-globe {
-	margin-right: 20px;
-	text-align: center;
-}
 
 
-/* Right Column */
 
-#right_col_graphic img {
-	border: 5px solid #000000;
-	float: left;
+/************************************************************************************
+UNUSED ASSETS 
+*************************************************************************************/
+
+#lamp img {
 	width: 140px;
-}
-
-/* Footer */
-
-footer {
-	clear: both;
+	height: 140px;
+	border: 5px solid black;
+	float: right;
 }
 
 #globe img {
@@ -181,35 +266,29 @@ footer {
 	border: 5px solid black;
 }
 
-#footer-center {
-	background-color: #D89D68; /* content background */
-	background-image: url(../imgs/footer/bookshelves_repeating.png);
-	background-position: 0px 95px; 
-	background-repeat: repeat-x;
-	float: left;
-	height: 150px;
-	width: 660px;
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+
+@media screen and (min-width: 1200px){
+	main {
+		width: 900px;
+	}
 }
 
-nav {
-	float: left;
-	text-align: center;
-	margin: 25px 0px 25px 0px; 
-	width: 100%;
+@media screen and (min-width: 940px) and (max-width: 1199){
+	main {
+		width: 640px;
+	}
 }
 
-#copyright {
-	clear: left;
-	font-size: 10pt;
-	font-family: serif;
-	float: left;
-	text-align: center;
-	width: 100%;
-}
+@media screen and (max-width: 939px){
+	main {
+		width: 100%;
+	}
+	.margin_col, #left_col img, #right_col img{
+		display: none;
+	}
 
-#lamp img {
-	width: 140px;
-	height: 140px;
-	border: 5px solid black;
-	float: left;
 }
