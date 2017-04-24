@@ -109,28 +109,17 @@ nav a {
 	background-image: url(../imgs/left_column_books.png);
 }
 
-/* Middle Column */
-
-main {
-	display: inline-block;
-   	padding-bottom:100px;   /* Height of the footer */
-	background-color: #D89D68;
-	margin: 0;
-	padding: 0;
-	height: 639px;
-	min-height:100%;
-   	position:relative;
-}
-
 #right_col {
 	background-image: url(../imgs/right_column_books.png);
 }
 
 /* Main (Middle) Content Column Addendum*/
 
-content {
-	padding:10px;
-    padding-bottom:100px;   /* Height of the footer */
+main {
+	display: inline-block;
+	background-color: #D89D68;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -174,11 +163,6 @@ article ul{
 
 .drop-cap + span{
   margin-left : -0.5em;
-}
-
-#library-globe {
-	margin-right: 20px;
-	text-align: center;
 }
 
 footer {
