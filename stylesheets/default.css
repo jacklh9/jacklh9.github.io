@@ -124,6 +124,7 @@ main {
 	padding: 0;
 	font-size: 0;
 	height: 639px;
+	overflow: auto;
 }
 
 #breadcrumb {
@@ -139,7 +140,6 @@ main {
 
 article {
 	height: 99%;
-	overflow: auto;
 	margin: 0;
 	padding: 0;
 }
@@ -249,9 +249,9 @@ ul#menu {
 	#menu li.about a{ background-position: -112px 0px;}
 	#menu li.about a:hover{ background-position: -112px -100px; }
 
-#menu li.blogs { height: 100px; width: 20px; margin: 0; }
-	#menu li.blogs a{ background-position: -133px 0px;}
-	#menu li.blogs a:hover{ background-position: -133px -99px; }
+#menu li.blog { height: 100px; width: 20px; margin: 0; }
+	#menu li.blog a{ background-position: -133px 0px;}
+	#menu li.blog a:hover{ background-position: -133px -99px; }
 
 #menu li.contact { height: 100px; width: 14px; margin: 0; }
 	#menu li.contact a{ background-position: -152px 0px;}
