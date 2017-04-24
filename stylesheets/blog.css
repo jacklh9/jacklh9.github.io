@@ -11,6 +11,11 @@ img.topic-graphic-thumbnail {
 	margin: 15px 5px 5px 5px;
 }
 
+article img {
+	float:left;
+	clear: both;
+}
+
 article.blog-post-summary  {
 	float: left;
 	margin: 10px 10px 10px 10px;
