@@ -1,0 +1,38 @@
+<article class="project-post">
+<table>
+	<thead>
+	  <tr>
+	    <th colspan="5" id="header">
+	    </th>
+	  </tr>
+	</thead>
+	<tr>
+	  <td id = "credit_cost"></td>
+	  <td id = "current_bet"></td>
+	  <td id = "recent_win_payout"></td>
+	  <td id = "previous_turn_payout"></td>
+	  <td id = "balance"></td>
+	</tr>
+	<tr>
+	  <td class = "empty" colspan="5"></td>
+    </tr>
+	<tr>
+	  <td ></td>
+	  <td class="reel" id="reel1"></td>
+	  <td class="reel" id="reel2"></td>
+	  <td class="reel" id="reel3"></td>
+	  <td ></td>
+	</tr>
+	<tr>
+	  <td class = "empty" colspan="5"></td>
+    </tr>
+	<tr>
+	  <td ></td>
+	  <td class="button" id="bet"><img src="./slots/imgs/bet.png"</td>
+	  <td ></td>
+	  <td class="button" id="spin"><img src="./slots/imgs/spin.png"</td>
+	  <td ></td>
+	</tr>
+</table>
+
+</article>

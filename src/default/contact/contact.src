@@ -1,0 +1,22 @@
+<article class="home_post">
+
+<p>
+<span class="drop-cap">R</span>each me!
+</p>
+<p>
+jack&nbsp;&nbsp;@&nbsp;&nbsp;jackhamilton.net
+</p>
+
+<p>
+<ul>
+<li><a href="mailto:jack @ jackhamilton.net"><img class="contact" src="./imgs/logos/gmail.png"></a></li>
+<li><a href="http://github.com/jacklh9" target="_blank"><img class="contact" src="./imgs/logos/github.png"></a></li>
+<li><a href="https://www.linkedin.com/in/jacklhamilton" target="_blank"><img class="contact" src="./imgs/logos/linked-in.png"></a></li>
+</ul>
+</p>
+
+<aside>
+<img src="imgs/man-megaphone.gif" alt="Man with Megaphone graphic">
+</aside>
+
+</article>
