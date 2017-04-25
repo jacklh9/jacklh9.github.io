@@ -1,8 +1,3 @@
-#sections {
-	overflow: auto;
-	max-height: 460px;
-}
-
 main section {
 	border: 1px solid #FFFFFF;
 	margin: 10px 10px 10px 10px;
@@ -14,6 +9,11 @@ img.topic-graphic-thumbnail {
 	height: 95%;
 	width: 15%;
 	margin: 15px 5px 5px 5px;
+}
+
+article img {
+	float:left;
+	clear: both;
 }
 
 article.blog-post-summary  {
@@ -35,8 +35,6 @@ article.blog-post-summary  {
 
 article.blog-post {
 	margin: 10px 20px 10px 20px;
-	max-height: 460px;
-	overflow: auto;
 }
 
 
