@@ -2,13 +2,12 @@
 
 
 def list_dirs():
-build_dirs=`find . -maxdepth 1 -type d`
+    build_dirs=`find . -maxdepth 1 -type d`
+    print($build_dirs)
+    
 
+def do_things():
+    #for dir in $build_dir
 
-
-
-
-for dir in $build_dir
-
-echo $build_dirs
+list_dirs()
 
