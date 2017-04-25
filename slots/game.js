@@ -312,7 +312,7 @@ function SlotMachine(amountPerCredit) {
 	function outputResults(){
 		for (var i = 0; i < numReels; i++){
 			var elementID = "reel" + (i + 1); // build id name
-			document.getElementById(elementID).innerHTML = "<img src=\"imgs/" + reelsResult[i] + "\">";
+			document.getElementById(elementID).innerHTML = "<img src=\"slots/imgs/" + reelsResult[i] + "\">";
 		}
 	};	
 
