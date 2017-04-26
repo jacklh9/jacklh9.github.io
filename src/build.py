@@ -3,8 +3,7 @@ from subprocess import check_output
 from os.path import basename
 
 def get_subdirs(dir):
-    dirs = [d for d in os.listdir(dir) if os.path.isdir(d)]
-    print("Dirs:",dirs)
+    dirs = [d for d in os.listdir(path=dir) if os.path.isdir(os.path.join(dir,d))]
     return dirs
 
 def build_dirs(inputdir, outputdir):
@@ -12,10 +11,8 @@ def build_dirs(inputdir, outputdir):
 
     if len(subdirs) > 0:
         for dir in subdirs:
-            path = inputdir + "/" + basename(dir)
-            print("Found dir:", path)
+            path = os.path.join(inputdir, basename(dir))
             build_dirs(inputdir=path, outputdir=outputdir)
-
 
 
 def print_usage():
