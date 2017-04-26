@@ -1,14 +1,21 @@
 import sys, getopt, os
 from subprocess import check_output
+from os.path import basename
 
-def get_dirs():
-    bytearray_stdout = check_output(["find", ".", "-maxdepth", "1", "-type", "d"])
-    return str(bytearray_stdout, 'utf-8').splitlines()
+def get_subdirs(dir):
+    dirs = [d for d in os.listdir(dir) if os.path.isdir(d)]
+    print("Dirs:",dirs)
+    return dirs
 
-def build_html(inputdir, outputdir):
-    print("Inside build_html")
-    print("Input dir:", inputdir)
-    print("Output dir:", outputdir)
+def build_dirs(inputdir, outputdir):
+    subdirs = get_subdirs(dir=inputdir)
+
+    if len(subdirs) > 0:
+        for dir in subdirs:
+            path = inputdir + "/" + basename(dir)
+            print("Found dir:", path)
+            build_dirs(inputdir=path, outputdir=outputdir)
+
 
 
 def print_usage():
@@ -42,7 +49,7 @@ def main(argv):
         print_usage()
         sys.exit(2)
 
-    build_html(inputdir=inputdir, outputdir=outputdir)
+    build_dirs(inputdir=inputdir, outputdir=outputdir)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
